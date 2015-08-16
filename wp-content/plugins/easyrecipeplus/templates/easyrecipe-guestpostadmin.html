@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, noarchive">
+<link href="../css/easyrecipe-posts.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+#apDiv1 {
+	position:absolute;
+	left:394px;
+	top:48px;
+	width:727px;
+	height:439px;
+	z-index:1;
+}
+</style>
+</head>
+
+<body>
+<div id="apDiv1" class="easyrecipeUI">
+  <!-- START PAGE -->
+  <div class="divERGPAContainer">
+    <div id="divERGPAPostTitle">#title#</div>
+    <table>
+      <!-- START INCLUDEIF !isGravityForm -->
+      <tr>
+        <th scope="row">Name</th>
+        <td id="tdERGPName">#name#</td>
+      </tr>
+      <tr>
+        <th scope="row">Email:</th>
+        <td id="tdERGPEmail"><a href="mailto:#email#">#email#</a></td>
+      </tr>
+      <tr>
+        <th scope="row">Website:</th>
+        <td id="tdERGPUrl"><a href="#url#" target="_blank">#url#</a></td>
+      </tr>
+      <!-- END INCLUDEIF !isGravityForm -->
+      <!-- START INCLUDEIF isGravityForm -->
+      <!-- START REPEAT GRAVITYFIELDS -->
+      <tr>
+        <th scope="row">#label#</th>
+        <td id="tdERGPName">#value#</td>
+      </tr>
+      <!-- END REPEAT GRAVITYFIELDS -->
+      <!-- END INCLUDEIF isGravityForm -->
+      <tr>
+        <th scope="row">Message:</th>
+        <td id="tdERGPComment">#comment#</td>
+      </tr>
+    </table>
+    <div id="divERGPAClose"><span class="spnERGPAClose">Close</span></div>
+  </div>
+  <!-- END PAGE -->
+</div>
+</body>
+</html>
+

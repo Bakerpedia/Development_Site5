@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="../css/easyrecipe-settings.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+#apDiv2 {
+	position: absolute;
+	left: 456px;
+	top: 12px;
+	width: 951px;
+	height: 442px;
+	z-index: 1;
+}
+</style>
+</head>
+
+<body>
+<div id="apDiv2" class="easyrecipeUI">
+  <div id="divERSTabs">
+    <div id="divERSGuestPosts"> 
+      <!-- START PAGE -->
+      <div>
+        <table>
+          <tr>
+            <th scope="row"><span class="xlate">Guest post user</span> </th>
+            <td><select name="#settingsname#[gpUserID]">
+                <!-- START REPEAT GPUSERS -->
+                <option value="#userid#"
+                                    #selected#>#username#&nbsp; </option>
+                <!-- END REPEAT GPUSERS -->
+              </select></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="xlate">Details page </span></th>
+            <td><select name="#settingsname#[gpDetailsPage]">
+                <!-- START REPEAT GPDETAILSPAGE -->
+                <option value="#pageid#" #selected#>#pagename#&nbsp; </option>
+                <!-- END REPEAT GPDETAILSPAGE -->
+              </select></td>
+          </tr>
+          <!-- START INCLUDEIF isDebug -->
+          <tr>
+            <th scope="row"><span class="xlate">Gravity Form to use on the details page</span> <!-- START INCLUDEIF !hasGravityForms --> 
+              <br>
+              <span class="ERSExplain">You do not have Gravity Forms installed. <a href="http://www.easyrecipeplugin.com/gravity-forms.php" target="_blank">More information...</a></span><!-- END INCLUDEIF !hasGravityForms --></th>
+            <td><select name="#settingsname#[gpGravityFormID]">
+                <!-- START REPEAT GPGRAVITYFORMS -->
+                <option value="#formid#"
+                                    #selected#>#pagename#&nbsp; </option>
+                <!-- END REPEAT GPGRAVITYFORMS -->
+              </select></td>
+          </tr>
+          <!-- END INCLUDEIF isDebug -->
+          <tr>
+            <th scope="row"><span class="xlate">Entry page</span> </th>
+            <td><select name="#settingsname#[gpEntryPage]">
+                <!-- START REPEAT GPENTRYPAGE -->
+                <option value="#pageid#"
+                                    #selected#>#pagename#&nbsp; </option>
+                <!-- END REPEAT GPENTRYPAGE -->
+              </select></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="xlate">Hide footer</span> </th>
+            <td><input type="checkbox" name="#settingsname#[gpHideFooter]" #gpHideFooterChecked# /></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="xlate">Thanks page</span> </th>
+            <td><select name="#settingsname#[gpThanksPage]">
+                <!-- START REPEAT GPTHANKSPAGE -->
+                <option value="#pageid#"
+                                    #selected#>#pagename#&nbsp; </option>
+                <!-- END REPEAT GPTHANKSPAGE -->
+              </select></td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <th style="text-align:center" colspan="2" scope="row"><span class="xlate">Custom labels</span><br/>
+              <span class="ERSExplain"><span class="xlate">Use these to change the default field labels on the guest post pages</span></span></th>
+          </tr>
+          <tr>
+            <td width="30%" class="tdRightAlign">Name:</td>
+            <td width="70%"><input class="ERSTextFieldWide" type="text" name="#settingsname#[lblGPName]" value="#lblGPName#"/></td>
+          </tr>
+          <tr>
+            <td class="tdRightAlign">Email:</td>
+            <td><input class="ERSTextFieldWide" type="text" name="#settingsname#[lblGPEmail]" value="#lblGPEmail#"/></td>
+          </tr>
+          <tr>
+            <td class="tdRightAlign">Website:</td>
+            <td><input class="ERSTextFieldWide" type="text" name="#settingsname#[lblGPWebsite]" value="#lblGPWebsite#"/></td>
+          </tr>
+          <tr>
+            <td class="tdRightAlign">Continue:</td>
+            <td><input class="ERSTextFieldWide" type="text" name="#settingsname#[lblGPContinue]" value="#lblGPContinue#"/></td>
+          </tr>
+          <tr>
+            <td class="tdRightAlign">Post title:</td>
+            <td><input class="ERSTextFieldWide" type="text" name="#settingsname#[lblGPPostTitle]" value="#lblGPPostTitle#"/></td>
+          </tr>
+          <tr>
+            <td class="tdRightAlign">Hint:</td>
+            <td><input class="ERSTextFieldWide" type="text" name="#settingsname#[lblGPHint]" value="#lblGPHint#"/></td>
+          </tr>
+          <tr>
+            <td class="tdRightAlign">Message:</td>
+            <td><input class="ERSTextFieldWide" type="text" name="#settingsname#[lblGPMessage]" value="#lblGPMessage#"/></td>
+          </tr>
+          <tr>
+            <td class="tdRightAlign">Submit Post:</td>
+            <td><input class="ERSTextFieldWide" type="text" name="#settingsname#[lblGPSubmitPost]" value="#lblGPSubmitPost#"/></td>
+          </tr>
+        </table>
+      </div>
+      <!-- END PAGE --> 
+    </div>
+  </div>
+</div>
+</body>
+</html>
+

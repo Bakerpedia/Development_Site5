@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, noarchive">
+    <link href="../css/easyrecipe-guestpost.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+#apDiv1 {
+	position: absolute;
+	left: 225px;
+	top: 55px;
+	width: 858px;
+	height: 547px;
+	z-index: 1;
+	font: 12px Arial, Helvetica, sans-serif;
+}
+</style>
+</head>
+
+<body>
+<div id="apDiv1">
+  <!-- START PAGE -->
+  <div class="ERGuestPostDetails easyrecipeUI">
+    <div id="divERGPHdr">#title#</div>
+    <form id="frmERGPForm" method="post" action="#next#">
+      <input type="hidden" value="#nonce#" name="nonce" />
+      <div id="divERGPData">
+        <div class="ERGPLabel">#lblGPName# <span class="ERGPError" id="spnERGPNameErr"></span> </div>
+        <div>
+          <input type="text" id="fldERGPName" name="ERGuestPost[egpname]" />
+        </div>
+        <div class="ERGPLabel">#lblGPEmail# <span class="ERGPError" id="spnERGPEmailErr"></span> </div>
+        <div>
+          <input type="text" id="fldERGPEmail" name="ERGuestPost[egpemail]" />
+        </div>
+        <div class="ERGPLabel">#lblGPWebsite# <span class="ERGPError" id="spnERGPURLErr"></span> </div>
+        <div>
+          <input type="text" id="fldERGPURL" name="ERGuestPost[egpurl]" />
+        </div>
+        <div id="divERGPContinue">
+          <input type="submit" value="#lblGPContinue#">
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- END PAGE -->
+</div>
+</body>
+</html>
+

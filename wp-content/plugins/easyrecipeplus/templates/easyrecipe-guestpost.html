@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, noarchive">
+<link href="../css/easyrecipe-guestpost.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+#apDiv1 {
+	position: absolute;
+	left: 225px;
+	top: 55px;
+	width: 858px;
+	height: 547px;
+	z-index: 1;
+	font: 12px Arial, Helvetica, sans-serif;
+}
+</style>
+</head>
+
+<body>
+<div id="apDiv1">
+  <!-- START PAGE -->
+  <div class="ERGuestPostSubmit easyrecipeUI">
+    <form method="post" action="#next#">
+      <input type="hidden" value="#postID#" name="postID" />
+      <input type="hidden" value="#nonce#" name="nonce" />
+      <!-- START INCLUDEIF !isGravityForm -->
+      <input type="hidden" value="#name#" id="inpERGPAuthor" name="ERGuestPost[egpname]" />
+      <input type="hidden" value="#email#" name="ERGuestPost[egpemail]" />
+      <input type="hidden" value="#url#" name="ERGuestPost[egpurl]" />
+      <!-- END INCLUDEIF !isGravityForm -->
+      <!-- START INCLUDEIF isGravityForm -->
+      <input type="hidden" value="#gfLead#" id="inpERGPGFLead" name="ERGuestPost[egpGFLead]" />
+      <!-- END INCLUDEIF isGravityForm -->
+      <div id="divERGPPost">
+        <div class="ERGPLabel">#lblGPPostTitle# <span class="ERGPError" id="spnERGPTitleErr"></span> </div>
+        <div>
+          <input type="text" id="fldERGPTitle" name="ERGuestPost[egpTitle]" />
+        </div>
+        <div class="ERGPLabel">#lblGPHint#</div>
+        <div id="divERGPEditor">#editor#</div>
+        <div id="divERGPComment" class="ERGPLabel">#lblGPMessage#
+          <div>
+            <textarea name="ERGuestPost[egpcomment]" id="taERGPComment"></textarea>
+          </div>
+        </div>
+        <div id="divERGPSave" class="ERGPLabel">
+          <input type="submit" class="ERGPButton" id="btnERGPSave" value="#lblGPSubmitPost#" />
+        </div>
+      </div>
+    </form>
+  </div>
+  #uploadDialog# #linksDialog#
+  <!-- START INCLUDEIF gpHideFooter -->
+  <style type="text/css">
+#comments  {
+	display: none !important;
+}
+#footer,footer {
+    display: none !important;
+}
+</style>
+  <!-- END INCLUDEIF gpHideFooter -->
+  <!-- END PAGE -->
+</div>
+</body>
+</html>
+
