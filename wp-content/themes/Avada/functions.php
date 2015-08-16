@@ -1,5 +1,10 @@
 <?php
-
+	// ****************CHANGE LOG ***************************************
+	//
+	// 1. 08/16/2015, Kevin Hooper - add-categories-and-tags-on-pages
+	// 2. date, author, change
+	//
+	// ****************END CHANGE LOG************************************
 /**
  * Autoloader
  *
@@ -516,3 +521,18 @@ function avada_layerslider_ready() {
 add_action( 'layerslider_ready', 'avada_layerslider_ready' );
 
 // Omit closing PHP tag to avoid "Headers already sent" issues.
+
+
+	// KJH 08/16/2015 - add-categories-and-tags-on-pages
+	function avada_page_tag_cat_settings() {  
+		// Add tag metabox to page
+		register_taxonomy_for_object_type('post_tag', 'page'); 
+		// Add category metabox to page
+		register_taxonomy_for_object_type('category', 'page'); 
+	}
+	
+	 // Add to the admin_init hook and call avada_page_tag_cat_settings
+	add_action( 'init', 'avada_page_tag_cat_settings' );
+	
+	
+	
