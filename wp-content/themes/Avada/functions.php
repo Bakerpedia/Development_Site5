@@ -2,7 +2,7 @@
 	// ****************CHANGE LOG ***************************************
 	//
 	// 1. 08/16/2015, Kevin Hooper - add-categories-and-tags-on-pages
-	// 2. date, author, change
+	// 2. 08/22/2015, Kevin Hooper - added functions wpb_related_pages and wpb_related_posts
 	//
 	// ****************END CHANGE LOG************************************
 /**
@@ -534,5 +534,82 @@ add_action( 'layerslider_ready', 'avada_layerslider_ready' );
 	 // Add to the admin_init hook and call avada_page_tag_cat_settings
 	add_action( 'init', 'avada_page_tag_cat_settings' );
 	
+// KJH 08/20/2015 - get pages that are related by tags 
+function wpb_related_pages() { 
+	$orig_post = $post;
+	global $post;
+	$tags = wp_get_post_tags($post->ID);
 	
+	if ($tags) {	
+	
+		$tag_ids = array();
+		foreach($tags as $individual_tag)
+			$tag_ids[] = $individual_tag->term_id;
+			$args=array(
+			'post_type' => 'page',
+			'tag__in' => $tag_ids,
+			'post__not_in' => array($post->ID),
+			'posts_per_page'=>5
+			);
+		
+			$my_query = new WP_Query( $args );
+			
+				if( $my_query->have_posts() ) {				
+					// echo '<div id="relatedpages"><h3>Related Pages</h3><ul>';
+					  
+						while( $my_query->have_posts() ) {
+							$my_query->the_post(); ?>		
+		
+					<p style="margin-bottom: -20px;">			
+						<i class="fa fa-link"></i>
+						<a style="padding-left:10px;" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+					</p>
+					 
+					 <?php
+					 }				
+	
+				} 
+	}
+	$post = $orig_post;
+	wp_reset_query(); 
+}
+
+// KJH 08/21/2015 get posts that are related by tags 
+function wpb_related_posts() { 
+	$orig_post = $post;
+	global $post;
+	$tags = wp_get_post_tags($post->ID);
+	
+	if ($tags) {
+		$tag_ids = array();
+		foreach($tags as $individual_tag)
+			$tag_ids[] = $individual_tag->term_id;
+			$args=array(
+			'post_type' => 'post',
+			'tag__in' => $tag_ids,
+			'post__not_in' => array($post->ID),
+			'posts_per_page'=>5
+			);
+			
+			$my_query = new WP_Query( $args );
+			
+				if( $my_query->have_posts() ) {				
+					
+					// echo $post->ID;
+						while( $my_query->have_posts() ) {
+							$my_query->the_post(); ?>		
+		
+					<p style="margin-bottom: -20px;">			
+						<i class="fa fa-link"></i>
+						<a style="padding-left:10px;" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+					</p>					 
+				 <?php
+				 }				
+			} 
+	}
+	
+	$post = $orig_post;
+	wp_reset_query(); 
+}
+
 	
