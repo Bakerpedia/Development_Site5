@@ -71,7 +71,7 @@ class wp_tags_plugin extends WP_Widget {
 
 	   // Check if title is set
 	   if ( $title ) {
-		  echo $before_title . $title . $after_title;
+		  echo '<div class="related-links-widget-title">'.$title.'</div>';;
 	   }
 
 	   // Check if text is set

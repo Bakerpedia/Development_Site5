@@ -13023,3 +13023,13 @@ table {
 .fusion-vimeo.center-video .video-shortcode {
   margin: 0 auto;
 }
+
+/*** START Related Links CSS ***/
+
+.related-links-widget-title {
+  margin: 0;
+  color: #ddd;
+  text-transform: uppercase;
+  font: 13px/20px 'PTSansBold', arial, helvetica, sans-serif;
+  
+/*** END Related Links CSS ***/
