@@ -41,7 +41,7 @@
 											printf( '<a href="%s">%s</a>', $_product->get_permalink(), $thumbnail );
 									?>
 								</span>
-						<div class="product-info">
+						<div id="test1" class="product-info">
 							<?php // Avada edit ?>
 							<?php echo apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key ); ?>
 							<?php echo apply_filters( 'woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . sprintf( '&times; %s', $cart_item['quantity'] ) . '</strong>', $cart_item, $cart_item_key ); ?>
