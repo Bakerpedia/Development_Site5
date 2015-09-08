@@ -93,7 +93,85 @@ class wp_tags_plugin extends WP_Widget {
 	   echo $after_widget;
 	}
 }
+// KJH 08/20/2015 - get pages that are related by tags 
+function wpb_related_pages() { 
+	$orig_post = $post;
+	global $post;
+	$tags = wp_get_post_tags($post->ID);
+	
+	if ($tags) {		
+		$tag_ids = array();
+		foreach($tags as $individual_tag)
+			$tag_ids[] = $individual_tag->term_id;
+			$args=array(
+			'post_type' => 'page',
+			'tag__in' => $tag_ids,
+			'post__not_in' => array($post->ID),
+			'posts_per_page'=>5
+			);
+			
+			$my_query = new WP_Query( $args );
+			
+				if( $my_query->have_posts() ) {				
+					echo '<div style="margin-bottom: -15px;" class="related-links-widget-title">Related Topics</div>';
+					//  echo $post->ID;
+						while( $my_query->have_posts() ) {
+							$my_query->the_post(); ?>		
+		
+					<p style="margin-bottom: -20px;">			
+						<i class="fa fa-link"></i>
+						<a style="padding-left:10px;" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+					</p>
+					 
+					 <?php
+					 }
+					
+	echo '</ul></div>';
+	} else { 
+	echo "No Related Pages Found:";
+	}
+}
+	$post = $orig_post;
+	wp_reset_query(); 
+}
 
+// KJH 08/21/2015 get posts that are related by tags 
+function wpb_related_posts() { 
+	$orig_post = $post;
+	global $post;
+	$tags = wp_get_post_tags($post->ID);
+	
+	if ($tags) {
+		$tag_ids = array();
+		foreach($tags as $individual_tag)
+			$tag_ids[] = $individual_tag->term_id;
+			$args=array(
+			'post_type' => 'post',
+			'tag__in' => $tag_ids,
+			'post__not_in' => array($post->ID),
+			'posts_per_page'=>5
+			);
+			
+			$my_query = new WP_Query( $args );
+			
+				if( $my_query->have_posts() ) {				
+					echo '<div style="margin-bottom: -15px;" class="related-links-widget-title">Related Posts</div>';
+					// echo $post->ID;
+						while( $my_query->have_posts() ) {
+							$my_query->the_post(); ?>		
+		
+					<p style="margin-bottom: -20px;">			
+						<i class="fa fa-link"></i>
+						<a style="padding-left:10px;" href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+					</p>					 
+				 <?php
+				 }				
+			} 
+	}
+	
+	$post = $orig_post;
+	wp_reset_query(); 
+}
 // register widget
 add_action('widgets_init', create_function('', 'return register_widget("wp_tags_plugin");'));
 ?>

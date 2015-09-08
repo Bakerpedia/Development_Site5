@@ -4,7 +4,7 @@ Description: The #1 selling theme of all time that allows you to build virtually
 Author: ThemeFusion
 Theme URI: http://theme-fusion.com/avada/
 Author URI: http://themeforest.net/user/ThemeFusion
-Version: 3.8.6.1
+Version: 3.8.6
 License: Themeforest Split Licence
 License URI: -
 Text Domain: Avada
@@ -13023,20 +13023,9 @@ table {
 .fusion-vimeo.center-video .video-shortcode {
   margin: 0 auto;
 }
-
-/*** START Related Links CSS ***/
-
 .related-links-widget-title {
   margin: 0;
-  color: #ddd;
-  text-transform: uppercase;
-  font: 13px/20px 'PTSansBold', arial, helvetica, sans-serif;
- }
-/*** END Related Links CSS ***/
-
-/* KJH 09062015 : Woocommerce download link in /checkout/order-received/ */
-.order_item .product-name small a {
-	font-size: 14px;
-	font-weight: bold;
-	color: red;
+  color: #333;
+  font-family: "Antic Slab",Arial,Helvetica,sans-serif;
+  font-weight: bold;
 }
